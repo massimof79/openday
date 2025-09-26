@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Registrazione Open Day - IIS Fermi Sacconi Cpia</title>
+  <style>
+    body{font-family:system-ui,Arial;max-width:720px;margin:36px auto;padding:12px}
+    label{display:block;margin-top:12px}
+    input[type="text"], input[type="date"], select{width:100%;padding:8px;margin-top:6px}
+    .row{display:flex;gap:12px}
+    .row > *{flex:1}
+    .error{color:#b00020;margin-top:6px}
+    button{margin-top:16px;padding:10px 14px}
+    .success{color:green;margin-top:12px}
+  </style>
+</head>
+<body>
+  <h1>Registrazione Open Day — IIS Fermi Sacconi Cpia</h1>
+  <p>Compila il modulo per registrare un partecipante. I campi contrassegnati con * sono obbligatori.</p>
+
+  <form id="regForm" method="post" action="submit.php">
+    <label for="nome">Nome *</label>
+    <input id="nome" name="nome" type="text" maxlength="100" required />
+
+    <label for="cognome">Cognome *</label>
+    <input id="cognome" name="cognome" type="text" maxlength="100" required />
+
+    <div class="row">
+      <div>
+        <label for="data_nascita">Data di nascita *</label>
+        <input id="data_nascita" name="data_nascita" type="date" required />
+      </div>
+      <div>
+        <label for="scuola">Scuola di provenienza *</label>
+        <input id="scuola" name="scuola" type="text" maxlength="200" required placeholder="Es. Istituto Comprensivo di ..." />
+      </div>
+    </div>
+
+    <label>
+      <input id="consenso" name="consenso" type="checkbox" />
+      Autorizzo il trattamento dei dati personali per le finalità connesse all'organizzazione dell'Open Day. *
+    </label>
+
+    <div id="errors" class="error" aria-live="polite"></div>
+    <button type="submit">Invia registrazione</button>
+    <div id="message" class="success" aria-live="polite"></div>
+  </form>
+</body>
+</html>
